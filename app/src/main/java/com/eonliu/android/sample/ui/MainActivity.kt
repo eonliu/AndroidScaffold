@@ -1,15 +1,11 @@
 package com.eonliu.android.sample.ui
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.eonliu.android.sample.R
-import com.eonliu.android.scaffold.log.logD
+import com.eonliu.android.sample.databinding.ActivityMainBinding
+import com.eonliu.android.scaffold.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main) {
+    override fun onCreated() {
 
-        logD("1231231")
     }
 }
