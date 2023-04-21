@@ -19,13 +19,15 @@ abstract class BaseActivity<DB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes
     protected lateinit var binding: DB
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        viewModel = createViewModel()
+        viewModel.onParameter(intent.extras)
         super.onCreate(savedInstanceState)
+        lifecycle.addObserver(viewModel)
         activityCache.add(this)
         binding = DataBindingUtil.setContentView(this, layoutRes)
         binding.lifecycleOwner = this
 
-        viewModel = createViewModel()
-        viewModel.onParameter(intent.extras)
+
 
         onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(isInterceptBack()) {
             override fun handleOnBackPressed() {

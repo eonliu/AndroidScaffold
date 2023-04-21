@@ -7,7 +7,7 @@ import androidx.lifecycle.DefaultLifecycleObserver
 
 open class BaseViewModel(application: Application) : AndroidViewModel(application), DefaultLifecycleObserver {
 
-    fun onParameter(bundle: Bundle?) {
+    open fun onParameter(bundle: Bundle?) {
 
     }
 

@@ -26,9 +26,9 @@ abstract class BaseDialogFragment<DB : ViewDataBinding, VM : BaseViewModel>(@Lay
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         viewModel = createViewModel()
         viewModel.onParameter(arguments)
+        super.onCreate(savedInstanceState)
         lifecycle.addObserver(viewModel)
         setStyle(STYLE_NO_TITLE, R.style.BottomDialog)
     }

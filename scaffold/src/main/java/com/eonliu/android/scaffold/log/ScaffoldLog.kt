@@ -1,13 +1,14 @@
 package com.eonliu.android.scaffold.log
 
 import com.blankj.utilcode.util.LogUtils
+import com.eonliu.android.scaffold.Scaffold
 
 const val DEFAULT_LOG_TAG = "Scaffold_TAG"
 
 fun logConfig(): LogUtils.Config {
     return LogUtils.getConfig()
-        .setGlobalTag(DEFAULT_LOG_TAG)
-        .setLogSwitch(true)
+        .setGlobalTag(Scaffold.config.logTag)
+        .setLogSwitch(Scaffold.config.logSwitch)
 }
 
 fun logV(vararg content: Any) = LogUtils.v(content)
