@@ -18,7 +18,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 
-import com.yueyi.common.R;
+import com.eonliu.android.scaffold.R;
 
 @SuppressWarnings("UnusedDeclaration")
 public class RoundedImageView extends androidx.appcompat.widget.AppCompatImageView {
@@ -148,7 +148,6 @@ public class RoundedImageView extends androidx.appcompat.widget.AppCompatImageVi
         updateBackgroundDrawableAttrs(true);
 
         if (mMutateBackground) {
-            //noinspection deprecation
             super.setBackgroundDrawable(mBackgroundDrawable);
         }
 
@@ -371,11 +370,9 @@ public class RoundedImageView extends androidx.appcompat.widget.AppCompatImageVi
     }
 
     @Override
-    @Deprecated
     public void setBackgroundDrawable(Drawable background) {
         mBackgroundDrawable = background;
         updateBackgroundDrawableAttrs(true);
-        //noinspection deprecation
         super.setBackgroundDrawable(mBackgroundDrawable);
     }
 
