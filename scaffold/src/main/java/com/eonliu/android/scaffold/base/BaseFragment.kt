@@ -27,6 +27,7 @@ abstract class BaseFragment<DB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = createViewModel()
+        viewModel.onParameter(arguments)
         lifecycle.addObserver(viewModel)
         mFragmentProxy.onCreate(savedInstanceState)
     }

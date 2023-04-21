@@ -23,6 +23,7 @@ abstract class BaseActivity<DB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes
         binding.lifecycleOwner = this
 
         viewModel = createViewModel()
+        viewModel.onParameter(intent.extras)
 
         onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(isInterceptBack()) {
             override fun handleOnBackPressed() {
