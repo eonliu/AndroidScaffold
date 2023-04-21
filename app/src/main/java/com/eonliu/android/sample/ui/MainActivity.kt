@@ -8,6 +8,7 @@ import com.eonliu.android.scaffold.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main) {
     override fun onCreated() {
+        binding.data = "测试data binding"
         binding.recyclerView.linear().setup {
 
         }

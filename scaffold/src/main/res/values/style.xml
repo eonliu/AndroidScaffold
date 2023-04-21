@@ -57,4 +57,18 @@
             <enum name="mirror" value="2" />
         </attr>
     </declare-styleable>
+
+    <!--分割线 - 水平-->
+    <style name="HorizontalDividerStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/divider_line</item>
+        <item name="android:background">@color/color_DDDDDD</item>
+    </style>
+
+    <!--分割线 - 垂直-->
+    <style name="VerticalDividerStyle">
+        <item name="android:layout_width">@dimen/divider_line</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/color_DDDDDD</item>
+    </style>
 </resources>

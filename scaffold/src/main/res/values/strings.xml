@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cancel" translatable="false">取消</string>
+    <string name="confirm" translatable="false">确定</string>
+    <string name="know" translatable="false">知道了</string>
+    <string name="iknow" translatable="false">我知道了</string>
+</resources>

@@ -1,6 +1,7 @@
 package com.eonliu.android.scaffold
 
 import android.app.Application
+import com.drake.brv.utils.BRV
 import com.drake.net.convert.NetConverter
 import com.eonliu.android.scaffold.log.DEFAULT_LOG_TAG
 import com.eonliu.android.scaffold.log.logConfig
@@ -19,6 +20,7 @@ object Scaffold {
         dataStoreName = config.dataStoreName
         logConfig()
         Nets.init(application, config.baseUrl)
+        BRV.modelId = BR.data
     }
 
     open class Config protected constructor(builder: Builder) {
