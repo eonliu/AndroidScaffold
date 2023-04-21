@@ -10,7 +10,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     override fun onCreated() {
         binding.data = "测试data binding"
         binding.recyclerView.linear().setup {
+            addType<String>(R.layout.item_asdasd)
 
+            models = listOf("1w312", "1w312", "1w312", "1w312", "1w312", "1w312", "1w312", "1w312", "1w312")
         }
     }
 }

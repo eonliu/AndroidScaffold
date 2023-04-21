@@ -8,5 +8,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         Scaffold.init(this)
+//        BRV.modelId = BR.data
     }
 }
