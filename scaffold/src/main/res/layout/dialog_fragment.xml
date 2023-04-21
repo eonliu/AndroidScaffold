@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:theme="@style/Theme.678TV">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dialogLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_dialog_bg_shape"
+            android:maxHeight="430dp"
+            app:layout_constraintBottom_toTopOf="@id/singleButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:textColor="@color/color_343434"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="title" />
+
+            <ScrollView
+                android:id="@+id/contentScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="30dp"
+                android:paddingBottom="16dp"
+                android:scrollbars="none"
+                app:layout_constraintBottom_toTopOf="@id/contentDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_max="260dp"
+                app:layout_constraintHeight_min="60dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title">
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="5dp"
+                    android:textColor="@color/color_343434"
+                    android:textSize="13dp"
+                    tools:text="鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识鉴于您尚未对私募产品进行充分认识" />
+
+            </ScrollView>
+
+            <View
+                android:id="@+id/contentDivider"
+                style="@style/HorizontalDividerStyle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contentScrollView" />
+
+            <View
+                android:id="@+id/buttonDivider"
+                style="@style/VerticalDividerStyle"
+                android:layout_height="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contentDivider" />
+
+            <TextView
+                android:id="@+id/negative"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/color_999999"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/buttonDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contentDivider" />
+
+            <TextView
+                android:id="@+id/positive"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/confirm"
+                android:textColor="@color/color_AB907B"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/buttonDivider"
+                app:layout_constraintTop_toBottomOf="@id/contentDivider" />
+
+            <TextView
+                android:id="@+id/neutral"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:text="@string/know"
+                android:textColor="@color/color_AB907B"
+                android:textSize="16dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/contentDivider" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/doubleGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="negative,positive,buttonDivider" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/singleButton"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/common_button_circular"
+            android:gravity="center"
+            android:text="@string/iknow"
+            android:textColor="@color/color_343434"
+            android:textSize="18dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialogLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
