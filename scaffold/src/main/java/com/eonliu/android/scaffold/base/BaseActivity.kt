@@ -10,6 +10,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.blankj.utilcode.util.BarUtils
+import com.eonliu.android.scaffold.util.activityCache
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseActivity<DB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes val layoutRes: Int) : AppCompatActivity() {
@@ -19,6 +20,7 @@ abstract class BaseActivity<DB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        activityCache.add(this)
         binding = DataBindingUtil.setContentView(this, layoutRes)
         binding.lifecycleOwner = this
 
@@ -70,6 +72,11 @@ abstract class BaseActivity<DB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes
     open fun isTransparentStatusBar() = false
 
     open fun isStatusBarLightMode() = true
+
+    override fun onDestroy() {
+        super.onDestroy()
+        activityCache.remove(this)
+    }
 
     private fun initStatusBar() {
         if (isTransparentStatusBar()) {
