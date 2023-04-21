@@ -9,9 +9,13 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import java.lang.reflect.ParameterizedType
 
-abstract class BaseFragment<DB : ViewDataBinding>(@LayoutRes val layoutRes: Int) : Fragment(), FragmentOwner {
+abstract class BaseFragment<DB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes val layoutRes: Int) : Fragment(), FragmentOwner {
 
+    protected lateinit var viewModel: VM
     protected lateinit var binding: DB
 
     private val mFragmentProxy = FragmentProxy(this)
@@ -22,6 +26,8 @@ abstract class BaseFragment<DB : ViewDataBinding>(@LayoutRes val layoutRes: Int)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = createViewModel()
+        lifecycle.addObserver(viewModel)
         mFragmentProxy.onCreate(savedInstanceState)
     }
 
@@ -83,4 +89,10 @@ abstract class BaseFragment<DB : ViewDataBinding>(@LayoutRes val layoutRes: Int)
      * Fragment用户不可见时候调用
      */
     override fun onInvisible() {}
+
+    private fun <VM : ViewModel> createViewModel(): VM {
+        val vbClass = (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments.filterIsInstance<Class<*>>()
+        val viewModel = vbClass[1] as Class<VM>
+        return ViewModelProvider(this)[viewModel]
+    }
 }

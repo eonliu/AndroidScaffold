@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.blankj.utilcode.util.BarUtils
 import java.lang.reflect.ParameterizedType
 
-abstract class BaseActivity<DB : ViewDataBinding, VM : ViewModel>(@LayoutRes val layoutRes: Int) : AppCompatActivity() {
+abstract class BaseActivity<DB : ViewDataBinding, VM : BaseViewModel>(@LayoutRes val layoutRes: Int) : AppCompatActivity() {
 
     protected lateinit var viewModel: VM
     protected lateinit var binding: DB
