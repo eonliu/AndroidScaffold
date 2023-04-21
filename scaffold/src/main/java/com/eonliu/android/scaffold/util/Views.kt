@@ -1,5 +1,6 @@
 package com.eonliu.android.scaffold.util
 
+import android.app.Activity
 import android.view.View
 import android.widget.TextView
 
@@ -14,5 +15,10 @@ inline fun <reified T : View> T.setOnSingleClickListener(crossinline block: T.()
     }
 }
 
+inline fun <reified T : Activity> View.setOnClickStartActivity(vararg pairs: Pair<String, Any?>) {
+    setOnSingleClickListener {
+        startActivity<T>(*pairs)
+    }
+}
 
 fun TextView.textString() = text.toString().trim()
